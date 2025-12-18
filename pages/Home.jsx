@@ -1,7 +1,20 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 import ProductCard from "../components/ProductCard";
 
 const Home = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/products")
+      .then((res) => {
+        console.log("PRIMO PRODOTTO:", res.data?.[0])
+        setProducts(res.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
   return (
     <>
       <div className="jumbotron">
@@ -18,9 +31,13 @@ const Home = () => {
             <h2>I nostri prodotti</h2>
           </div>
           <div className="row">
-            <div className="col-4">
-              <ProductCard/>
-            </div>
+            {products.map((product) => {
+              return (
+                <div className="col-12 col-md-6 col-lg-4" key={product.id}>
+                  <ProductCard product={product} />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

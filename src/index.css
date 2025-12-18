@@ -85,7 +85,7 @@ header {
 /* product card styling */
 
 .product-card {
-  background-color: rgb(245, 245, 245); 
+  background-color: rgb(245, 245, 245);
   border: 1px solid rgba(208, 72, 78, 0.25);
   border-radius: 10px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -117,6 +117,8 @@ header {
 /* immagine */
 .product-card img {
   object-fit: cover;
-  height: 100%;
-  border-radius: px;
+  width: 100%;  
+  border-radius: 10px;
+  display: block;
 }
+
