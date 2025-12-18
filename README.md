@@ -1,16 +1,39 @@
-# React + Vite
+# PROGETTO FINALE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+===
 
-Currently, two official plugins are available:
+COSA REALIZZARE:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Una SPA che simula l’esperienza di un utente non autenticato, che può:
+Sfogliare, cercare e filtrare record
+Confrontare più elementi tra loro
+Salvare i preferiti
+❌ Non può creare, modificare o cancellare record.
 
-## React Compiler
+Il progetto deve essere sviluppato esclusivamente con React in JavaScript, utilizzando solo le tecnologie viste durante il corso.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+È consentito però l’uso di librerie esterne per la gestione dello styling, come ad esempio Tailwind CSS, Bootstrap o styled-components, purché non alterino il comportamento logico dell’applicazione.
 
-## Expanding the ESLint configuration
+REQUISITI MINIMI:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Per considerare il progetto completo, devono essere implementate almeno queste funzionalità:
+
+Gestione di una risorsa definita in types.ts
+
+Lista dei record, che mostra solo le proprietà principali title e category, e include:
+
+Barra di ricerca per cercare nei titoli (title)
+Filtro per categoria (category)
+Ordinamento alfabetico per title o category (A-Z e Z-A)
+Pagina di dettaglio per ogni record, con visualizzazione estesa delle sue proprietà (es. price, description, brand, ecc.)
+
+Comparatore di 2 record, visualizzati affiancati per confrontarne le caratteristiche.
+
+È libera la modalità di selezione: puoi permettere all’utente di aggiungere record al comparatore direttamente dalla lista, dalla pagina di dettaglio, oppure usare un menu a tendina, checkbox o qualsiasi altro sistema.
+
+L’importante è che l’utente possa scegliere 2 record qualsiasi e confrontarli in modo chiaro.
+
+Sistema di preferiti, sempre accessibile e aggiornabile:
+
+L’utente può aggiungere o rimuovere record dai preferiti in qualsiasi momento
+I preferiti devono essere consultabili in ogni sezione dell’app (es. tramite una sezione dedicata, un’icona fissa, o una sidebar)
