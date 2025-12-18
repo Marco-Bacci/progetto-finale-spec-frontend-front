@@ -5,9 +5,12 @@
 a {
   text-decoration: none;
 }
+
+body {
+  background-color: rgb(211, 211, 211);
+}
 /* header */
 header {
-  background-color: rgba(197, 197, 202, 0.459);
   padding: 20px;
 }
 
@@ -43,7 +46,7 @@ header {
 }
 
 .nav-item:hover i {
-  color: darkred;
+  color: rgb(109, 6, 6);
 }
 
 .nav-item:hover span {
@@ -69,10 +72,51 @@ header {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(208, 72, 78, 0.45); 
+  background-color: rgba(208, 72, 78, 0.45);
 }
 
 /* contenuto sopra l’overlay */
 .jumbotron-content {
   z-index: 1;
+}
+
+/* card */
+
+/* product card styling */
+
+.product-card {
+  background-color: rgb(245, 245, 245); 
+  border: 1px solid rgba(208, 72, 78, 0.25);
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(100, 2, 2, 0.12);
+  cursor: pointer;
+}
+
+/* titolo prodotto */
+.product-card .card-title {
+  color: rgb(208, 72, 78);
+  font-weight: 600;
+}
+
+/* categoria */
+.product-card .card-text {
+  color: rgb(70, 70, 70);
+}
+
+/* prezzo */
+.product-card small {
+  color: rgb(109, 6, 6) !important;
+  font-weight: 600;
+}
+
+/* immagine */
+.product-card img {
+  object-fit: cover;
+  height: 100%;
+  border-radius: px;
 }
