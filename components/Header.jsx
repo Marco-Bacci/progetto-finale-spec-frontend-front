@@ -2,11 +2,13 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header className="d-flex justify-content-between align-items-center">
-      <img
-        className="logo"
-        src="/images/AudioSpecs-transparent.png"
-        alt="logo"
-      />
+      <Link to="/">
+        <img
+          className="logo"
+          src="/images/AudioSpecs-transparent.png"
+          alt="logo"
+        />
+      </Link>
 
       <div className="icons">
         <Link to="/">
@@ -18,7 +20,7 @@ const Header = () => {
         <Link to="/comparison">
           <div className="nav-item">
             <i className="fa-solid fa-code-compare"></i>
-            <span>Compare</span>
+            <span>Compara</span>
           </div>
         </Link>
         <Link to="/favorites">
