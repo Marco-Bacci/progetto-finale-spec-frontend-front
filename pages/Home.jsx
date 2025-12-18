@@ -28,7 +28,7 @@ const Home = () => {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <h2>I nostri prodotti</h2>
+            <h2 className="py-4">Catalogo</h2>
           </div>
           <div className="row">
             {products.map((product) => {
