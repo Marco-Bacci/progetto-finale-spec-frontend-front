@@ -8,7 +8,6 @@ const Home = () => {
     axios
       .get("http://localhost:3001/products")
       .then((res) => {
-        console.log("PRIMO PRODOTTO:", res.data?.[0])
         setProducts(res.data);
       })
       .catch((error) => {
