@@ -30,19 +30,19 @@ const DetailPage = () => {
                 />
               </div>
             </div>
-            <div className="col-12 col-md-7">
-              <div className="card-body">
-                <h5 className="card-title text-danger">{product.title}</h5>
+            <div className="col-12 col-md-7 general-info">
+              <div className="card-body mb-3">
+                <h3 className="card-title text-danger">{product.title}</h3>
                 <p className="card-text">{product.category}</p>
               </div>
-              <p>Marca: {product.brand}</p>
-              <p>Prezzo: {product.price}€</p>
+              <p p><span>Marca:</span> {product.brand}</p>
+              <p><span>Prezzo:</span> {product.price}€</p>
               <p>{product.wireless}</p>
               <p>{product.noiseCancelling}</p>
-              <p>batteria: {product.batteryLifeHours}h</p>
+              <p><span>batteria:</span> {product.batteryLifeHours}h</p>
               <p>{product.microphone}</p>
-              <p>peso: {product.weightGrams} g</p>
-              <p>Descrizione: {product.description}</p>
+              <p><span>peso:</span> {product.weightGrams} g</p>
+              <p><span>Descrizione:</span> {product.description}</p>
             </div>
           </div>
         </div>

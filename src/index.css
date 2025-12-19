@@ -16,7 +16,7 @@ body {
 }
 @media (min-width: 998px) {
   .logo {
-    height: 70px; 
+    height: 70px;
   }
 }
 
@@ -148,7 +148,12 @@ body {
   display: block;
 }
 
-.site-header {
-  background-color: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+.general-info p,
+h3 {
+  font-size: 2em;
+  
+}
+
+.general-info span {
+  color: rgb(109, 6, 6);
 }
