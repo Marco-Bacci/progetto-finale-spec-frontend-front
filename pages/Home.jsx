@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <>
       <div className="jumbotron">
-        <div className="container jumbotron-content">
+        <div className="container jumbotron-content text">
           <h1 className="fw-bold">AudioSpecs</h1>
           <p className="lead">
             Confronta le cuffie migliori in base alle specifiche tecniche

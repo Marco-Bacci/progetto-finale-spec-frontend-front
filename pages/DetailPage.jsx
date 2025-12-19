@@ -16,37 +16,38 @@ const DetailPage = () => {
   if (!product) return <div className="container py-5">Caricamento…</div>;
 
   return (
-    <div className="container">
+    <>
       <h1 className="text-center">Dettaglio del prodotto</h1>
-
-      <div className="row py-5">
-        <div className="detail-card row g-3 align-items-start">
-          <div className="col-12 col-md-5">
-            <div className="product-image">
-              <img
-                className="img-fluid"
-                src={product.imageUrl}
-                alt={product.title}
-              />
+      <div className="container">
+        <div className="row py-5">
+          <div className="detail-card row g-3 align-items-start">
+            <div className="col-12 col-md-5">
+              <div className="product-image">
+                <img
+                  className="img-fluid"
+                  src={product.imageUrl}
+                  alt={product.title}
+                />
+              </div>
             </div>
-          </div>
-          <div className="col-12 col-md-7">
-            <div className="card-body">
-              <h5 className="card-title text-danger">{product.title}</h5>
-              <p className="card-text">{product.category}</p>
+            <div className="col-12 col-md-7">
+              <div className="card-body">
+                <h5 className="card-title text-danger">{product.title}</h5>
+                <p className="card-text">{product.category}</p>
+              </div>
+              <p>Marca: {product.brand}</p>
+              <p>Prezzo: {product.price}€</p>
+              <p>{product.wireless}</p>
+              <p>{product.noiseCancelling}</p>
+              <p>batteria: {product.batteryLifeHours}h</p>
+              <p>{product.microphone}</p>
+              <p>peso: {product.weightGrams} g</p>
+              <p>Descrizione: {product.description}</p>
             </div>
-            <p>Marca: {product.brand}</p>
-            <p>Prezzo: {product.price}€</p>
-            <p>{product.wireless}</p>
-            <p>{product.noiseCancelling}</p>
-            <p>batteria: {product.batteryLifeHours}h</p>
-            <p>{product.microphone}</p>
-            <p>peso: {product.weightGrams} g</p>
-            <p>Descrizione: {product.description}</p>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
