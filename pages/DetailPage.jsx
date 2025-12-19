@@ -22,13 +22,14 @@ const DetailPage = () => {
       <div className="row py-5">
         <div className="detail-card row g-3 align-items-start">
           <div className="col-12 col-md-5">
-            <img
-              className="img-fluid"
-              src={product.imageUrl}
-              alt={product.title}
-            />
+            <div className="product-image">
+              <img
+                className="img-fluid"
+                src={product.imageUrl}
+                alt={product.title}
+              />
+            </div>
           </div>
-
           <div className="col-12 col-md-7">
             <div className="card-body">
               <h5 className="card-title text-danger">{product.title}</h5>
