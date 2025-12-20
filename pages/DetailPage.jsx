@@ -34,15 +34,31 @@ const DetailPage = () => {
               <div className="card-body mb-3">
                 <h3 className="card-title text-danger">{product.title}</h3>
                 <p className="card-text">{product.category}</p>
+                <button className="add-to-list">
+                  <i className="fa-solid fa-star fs-3 "></i>
+                </button>
+                <button className="add-to-list">
+                  <i className="fa-solid fa-code-compare fs-3"></i>
+                </button>
               </div>
-              <p p><span>Marca:</span> {product.brand}</p>
-              <p><span>Prezzo:</span> {product.price}€</p>
+              <p p>
+                <span>Marca:</span> {product.brand}
+              </p>
+              <p>
+                <span>Prezzo:</span> {product.price}€
+              </p>
               <p>{product.wireless}</p>
               <p>{product.noiseCancelling}</p>
-              <p><span>batteria:</span> {product.batteryLifeHours}h</p>
+              <p>
+                <span>batteria:</span> {product.batteryLifeHours}h
+              </p>
               <p>{product.microphone}</p>
-              <p><span>peso:</span> {product.weightGrams} g</p>
-              <p><span>Descrizione:</span> {product.description}</p>
+              <p>
+                <span>peso:</span> {product.weightGrams} g
+              </p>
+              <p>
+                <span>Descrizione:</span> {product.description}
+              </p>
             </div>
           </div>
         </div>

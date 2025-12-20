@@ -151,7 +151,6 @@ body {
 .general-info p,
 h3 {
   font-size: 2em;
-  
 }
 
 .general-info span {
@@ -159,8 +158,23 @@ h3 {
 }
 
 /* input */
-.s-input{
+.s-input {
   background-color: rgb(245, 245, 245);
   border: 1px solid rgba(208, 72, 78, 0.25);
   border-radius: 10px;
+}
+
+/* buttons */
+
+.add-to-list {
+  padding: 15px 30px;
+  margin-right: 20px;
+  color: rgb(208, 72, 78);
+  background-color: rgb(245, 245, 245);
+  border: 1px solid rgba(208, 72, 78, 0.25);
+  border-radius: 10px;
+}
+button:hover {
+  background-color: rgb(208, 72, 78);
+  color: rgb(245, 245, 245);
 }
