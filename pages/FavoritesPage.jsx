@@ -11,13 +11,13 @@ const FavoritesPage = () => {
               <img
                 src="/images/beats-solo3.jpg"
                 alt="..."
-                className="product-thumb"
+                className="product-thumb d-none d-sm-inline ms-1 "
               />
-              <h4 className="mb-0">Nome prodotto</h4>
+              <h4 className="mb-0">Nome prodotto  </h4>
             </div>
-            <div>
-              <button className="add-to-list fs-5">dettaglio</button>
-              <button className="add-to-list fs-5">rimuovi</button>
+            <div className="d-flex gap-1">
+              <button className="add-to-list fs-5"><i class="fa-solid fa-info"></i></button>
+              <button className="add-to-list fs-5"><i class="fa-solid fa-xmark"></i></button>
             </div>
           </div>
         </div>

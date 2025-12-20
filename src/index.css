@@ -191,5 +191,5 @@ button:hover {
   width: 100px;
   height: 100px;
   object-fit: contain;
-  border-radius: 6px; /* opzionale, ma civilizzato */
+  border-radius: 6px; 
 }
