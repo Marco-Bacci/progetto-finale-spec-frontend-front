@@ -157,3 +157,10 @@ h3 {
 .general-info span {
   color: rgb(109, 6, 6);
 }
+
+/* input */
+.s-input{
+  background-color: rgb(245, 245, 245);
+  border: 1px solid rgba(208, 72, 78, 0.25);
+  border-radius: 10px;
+}

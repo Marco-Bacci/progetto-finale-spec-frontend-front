@@ -4,49 +4,36 @@ import ProductCard from "../components/ProductCard";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [alphabeticOrder, setAlphabeticOrder] = useState("");
 
-  // filtro di ricerca nome
   const filteredProducts = useMemo(() => {
-    console.log("render")
-    return products
-      .filter((product) => {
-        const productName = product.title
-          .toLowerCase()
-          .includes(search.toLowerCase());
-        const productCategory =
-          category === "all" || product.category === category;
+    const filtered = products.filter((product) => {
+      const productName = product.title
+        .toLowerCase()
+        .includes(search.toLowerCase());
 
-        // ordine alfabetico
+      const productCategory =
+        category === "all" || product.category === category;
 
-        return productName && productCategory;
-      })
-      .sort((a, b) => {
-        if (alphabeticOrder === "az") {
-          return a.title.localeCompare(b.title);
-        }
-        if (alphabeticOrder === "za") {
-          return b.title.localeCompare(a.title);
-        }
-        return 0; 
-      });
+      return productName && productCategory;
+    });
+
+    return filtered.sort((a, b) => {
+      if (alphabeticOrder === "az") return a.title.localeCompare(b.title);
+      if (alphabeticOrder === "za") return b.title.localeCompare(a.title);
+      return 0;
+    });
   }, [products, search, category, alphabeticOrder]);
-
-  // filtro ricerca categoria
 
   useEffect(() => {
     axios
       .get("http://localhost:3001/products")
-      .then((res) => {
-        setProducts(res.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      .then((res) => setProducts(res.data))
+      .catch((error) => console.error(error));
   }, []);
+
   return (
     <>
       <div className="jumbotron">
@@ -57,20 +44,23 @@ const Home = () => {
           </p>
         </div>
       </div>
+
       <div className="container">
+        {/* filtri */}
         <div className="row">
-          {/* ricerca per nome */}
           <div className="col-12 col-md-6 my-3">
             <input
+              className="s-input form-control"
               type="text"
               placeholder="Cerca..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          {/* ricerca per categoria */}
-          <div className="col-12 col-md-3 my-3">
+
+          <div className="col-12 col-md-4 my-3">
             <select
+              className="s-input form-control"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             >
@@ -80,9 +70,10 @@ const Home = () => {
               <option value="Gaming">Gaming</option>
             </select>
           </div>
-          {/*ricerca per ordine alfabetico  */}
-          <div className="col-12 col-md-3 my-3">
+
+          <div className="col-12 col-md-2 my-3">
             <select
+              className="s-input form-control"
               value={alphabeticOrder}
               onChange={(e) => setAlphabeticOrder(e.target.value)}
             >
@@ -91,16 +82,15 @@ const Home = () => {
               <option value="za">Dalla Z alla A</option>
             </select>
           </div>
+        </div>
 
-          <div className="row">
-            {filteredProducts.map((product) => {
-              return (
-                <div className="col-12 col-md-6 col-lg-4" key={product.id}>
-                  <ProductCard product={product} />
-                </div>
-              );
-            })}
-          </div>
+        {/* cards */}
+        <div className="row">
+          {filteredProducts.map((product) => (
+            <div className="col-12 col-md-6 col-lg-4" key={product.id}>
+              <ProductCard product={product} />
+            </div>
+          ))}
         </div>
       </div>
     </>
