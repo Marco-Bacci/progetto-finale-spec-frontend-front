@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
           <p className="card-text">{product.category}</p>
         </div>
         <div className="position-absolute top-0 end-0">
-          <button className="favorite"><i className="fa-solid fa-star"></i></button>
+          <button className="favorite"><i class="fa-regular fa-star"></i></button>
         </div>
       </div>
     </Link>

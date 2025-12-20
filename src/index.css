@@ -182,7 +182,7 @@ button:hover {
 .favorite {
   background-color: rgb(245, 245, 245);
   border: 1px solid rgba(208, 72, 78, 0.25);
-  border-radius: 0px 10px 0px 0px;
+  border-radius: 0px 10px 0px 10px;
 }
 
 /* preferiti */
