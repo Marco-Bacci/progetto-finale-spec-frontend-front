@@ -7,19 +7,33 @@ const Home = () => {
 
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
+  const [alphabeticOrder, setAlphabeticOrder] = useState("");
 
   // filtro di ricerca nome
   const filteredProducts = useMemo(() => {
-    return products.filter((product) => {
-      const productName = product.title
-        .toLowerCase()
-        .includes(search.toLowerCase());
-      const productCategory =
-        category === "all" || product.category === category;
-      return productName && productCategory;
-    });
-  }, [products, search, category]);
-  console.log("render");
+    console.log("render")
+    return products
+      .filter((product) => {
+        const productName = product.title
+          .toLowerCase()
+          .includes(search.toLowerCase());
+        const productCategory =
+          category === "all" || product.category === category;
+
+        // ordine alfabetico
+
+        return productName && productCategory;
+      })
+      .sort((a, b) => {
+        if (alphabeticOrder === "az") {
+          return a.title.localeCompare(b.title);
+        }
+        if (alphabeticOrder === "za") {
+          return b.title.localeCompare(a.title);
+        }
+        return 0; 
+      });
+  }, [products, search, category, alphabeticOrder]);
 
   // filtro ricerca categoria
 
@@ -45,8 +59,8 @@ const Home = () => {
       </div>
       <div className="container">
         <div className="row">
+          {/* ricerca per nome */}
           <div className="col-12 col-md-6 my-3">
-            {/* ricerca per nome */}
             <input
               type="text"
               placeholder="Cerca..."
@@ -54,8 +68,8 @@ const Home = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
+          {/* ricerca per categoria */}
           <div className="col-12 col-md-3 my-3">
-            {/* ricerca per categoria */}
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
@@ -66,6 +80,18 @@ const Home = () => {
               <option value="Gaming">Gaming</option>
             </select>
           </div>
+          {/*ricerca per ordine alfabetico  */}
+          <div className="col-12 col-md-3 my-3">
+            <select
+              value={alphabeticOrder}
+              onChange={(e) => setAlphabeticOrder(e.target.value)}
+            >
+              <option value="">Ordina per titolo</option>
+              <option value="az">Dalla A alla Z</option>
+              <option value="za">Dalla Z alla A</option>
+            </select>
+          </div>
+
           <div className="row">
             {filteredProducts.map((product) => {
               return (
