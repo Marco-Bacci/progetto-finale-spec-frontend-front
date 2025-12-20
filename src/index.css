@@ -184,3 +184,12 @@ button:hover {
   border: 1px solid rgba(208, 72, 78, 0.25);
   border-radius: 0px 10px 0px 0px;
 }
+
+/* preferiti */
+.product-thumb {
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 6px; /* opzionale, ma civilizzato */
+}
