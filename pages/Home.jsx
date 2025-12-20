@@ -4,15 +4,24 @@ import ProductCard from "../components/ProductCard";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-  const [search, setSearch] = useState("");
 
-  // filtro di ricerca
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("all");
+
+  // filtro di ricerca nome
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
-      return product.title.toLowerCase().includes(search.toLowerCase());
+      const productName = product.title
+        .toLowerCase()
+        .includes(search.toLowerCase());
+      const productCategory =
+        category === "all" || product.category === category;
+      return productName && productCategory;
     });
-  }, [products, search]);
+  }, [products, search, category]);
   console.log("render");
+
+  // filtro ricerca categoria
 
   useEffect(() => {
     axios
@@ -36,13 +45,26 @@ const Home = () => {
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-12 my-3">
+          <div className="col-12 col-md-6 my-3">
+            {/* ricerca per nome */}
             <input
               type="text"
               placeholder="Cerca..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
+          </div>
+          <div className="col-12 col-md-3 my-3">
+            {/* ricerca per categoria */}
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="all">Tutte le categorie</option>
+              <option value="In-ear">In-ear</option>
+              <option value="Over-ear">Over-ear</option>
+              <option value="Gaming">Gaming</option>
+            </select>
           </div>
           <div className="row">
             {filteredProducts.map((product) => {
