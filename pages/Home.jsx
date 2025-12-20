@@ -1,9 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import ProductCard from "../components/ProductCard";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [search, setSearch] = useState("");
+
+  // filtro di ricerca
+  const filteredProducts = useMemo(() => {
+    return products.filter((product) => {
+      return product.title.toLowerCase().includes(search.toLowerCase());
+    });
+  }, [products, search]);
+  console.log("render");
+
   useEffect(() => {
     axios
       .get("http://localhost:3001/products")
@@ -26,11 +36,16 @@ const Home = () => {
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-12">
-            <h2 className="py-4">Catalogo</h2>
+          <div className="col-12 my-3">
+            <input
+              type="text"
+              placeholder="Cerca..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
           </div>
           <div className="row">
-            {products.map((product) => {
+            {filteredProducts.map((product) => {
               return (
                 <div className="col-12 col-md-6 col-lg-4" key={product.id}>
                   <ProductCard product={product} />
