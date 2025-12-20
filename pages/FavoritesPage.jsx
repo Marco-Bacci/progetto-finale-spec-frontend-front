@@ -1,26 +1,49 @@
+import { useContext } from "react";
+import { GlobalContext } from "../src/context/GlobalContext";
+
 const FavoritesPage = () => {
+  const { favorites, removeFromFavorites } = useContext(GlobalContext);
+
   return (
-    <div className="container">
+    <div className="container my-4">
       <div className="row">
         <div className="col-12">
-          <h1>Preferiti</h1>
+          <h1 className="fw-bold mb-4">Preferiti</h1>
         </div>
-        <div className="col-12">
-          <div className="d-flex justify-content-between align-items-center detail-card">
-            <div className="d-flex align-items-center gap-3">
-              <img
-                src="/images/beats-solo3.jpg"
-                alt="..."
-                className="product-thumb d-none d-sm-inline ms-1 "
-              />
-              <h4 className="mb-0">Nome prodotto  </h4>
-            </div>
-            <div className="d-flex gap-1">
-              <button className="add-to-list fs-5"><i class="fa-solid fa-info"></i></button>
-              <button className="add-to-list fs-5"><i class="fa-solid fa-xmark"></i></button>
+
+        {favorites.length === 0 && (
+          <div className="col-12">
+            <p>Non hai ancora aggiunto nessun prodotto</p>
+          </div>
+        )}
+
+        {favorites.map((product) => (
+          <div className="col-12 mb-3" key={product.id}>
+            <div className="d-flex justify-content-between align-items-center detail-card">
+              <div className="d-flex align-items-center gap-3">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="product-thumb d-none d-sm-inline ms-1"
+                />
+                <h4 className="mb-0">{product.title}</h4>
+              </div>
+
+              <div className="d-flex gap-1">
+                <button className="add-to-list fs-5">
+                  <i className="fa-solid fa-info"></i>
+                </button>
+
+                <button
+                  className="add-to-list fs-5"
+                  onClick={() => removeFromFavorites(product.id)}
+                >
+                  <i className="fa-solid fa-xmark"></i>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );

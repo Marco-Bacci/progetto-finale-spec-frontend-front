@@ -1,14 +1,36 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { GlobalContext } from "../src/context/GlobalContext";
 const ProductCard = ({ product }) => {
+  const { toggleFavorite, isFavorite } = useContext(GlobalContext);
+  const fav = isFavorite(product.id);
+
   return (
     <Link to={`/product/${product.id}`}>
-      <div className="card mb-3 p-3 product-card position-relative " style={{ maxWidth: "540px" }}>
+      <div
+        className="card mb-3 p-3 product-card position-relative "
+        style={{ maxWidth: "540px" }}
+      >
         <div className="card-body">
           <h5 className="card-title text-danger">{product.title}</h5>
           <p className="card-text">{product.category}</p>
         </div>
         <div className="position-absolute top-0 end-0">
-          <button className="favorite"><i class="fa-regular fa-star"></i></button>
+          <button
+            className="favorite"
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation(); 
+              toggleFavorite(product);
+            }}
+          >
+            {fav ? (
+              <i className="fa-solid fa-star"></i>
+            ) : (
+              <i className="fa-regular fa-star"></i>
+            )}
+          </button>
         </div>
       </div>
     </Link>

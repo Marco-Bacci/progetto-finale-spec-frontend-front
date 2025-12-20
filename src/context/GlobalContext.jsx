@@ -1,6 +1,6 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useMemo } from "react";
 
-export const GlobalContext = createContext();
+export const GlobalContext = createContext(null);
 
 export function GlobalProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
@@ -19,7 +19,7 @@ export function GlobalProvider({ children }) {
   };
 
   const isFavorite = (productId) => {
-    setFavorites.some((prod) => prod.id === productId);
+    return favorites.some((p) => p.id === productId);
   };
 
   const toggleFavorite = (product) => {
@@ -28,6 +28,7 @@ export function GlobalProvider({ children }) {
       if (exists) {
         return prev.filter((p) => p.id !== product.id);
       }
+      return [...prev, product];
     });
   };
 

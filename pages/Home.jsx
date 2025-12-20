@@ -2,7 +2,9 @@ import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import ProductCard from "../components/ProductCard";
 
+
 const Home = () => {
+   
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
