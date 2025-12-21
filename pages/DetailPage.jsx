@@ -6,6 +6,7 @@ import { GlobalContext } from "../src/context/GlobalContext";
 const DetailPage = () => {
   const { toggleFavorite, isFavorite } = useContext(GlobalContext);
 
+
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
@@ -17,6 +18,7 @@ const DetailPage = () => {
   }, [id]);
 
   if (!product) return <div className="container py-5">Caricamento…</div>;
+
   const fav = isFavorite(product.id);
   return (
     <>
@@ -37,29 +39,19 @@ const DetailPage = () => {
               <div className="card-body mb-3">
                 <h3 className="card-title text-danger">{product.title}</h3>
                 <p className="card-text">{product.category}</p>
-                <button 
-                  className="add-to-list"
+                <button
+                  className={`add-to-list ${fav ? "favorite" : ""}`}
                   onClick={() => {
                     toggleFavorite(product);
                   }}
-                  style={
-                      fav
-                        ? {
-                            backgroundColor: "rgb(245, 245, 245)",
-                            border: "1px solid rgba(208, 72, 78, 0.25)"
-                          }
-                        : {
-                            
-                            backgroundColor: "rgb(208, 72, 78)",
-                            color: "rgb(245, 245, 245)",
-                          }
-                    }
-                  >
-                
+                >
                   <i className="fa-solid fa-star fs-3"></i>
                 </button>
 
-                <button className="add-to-list">
+                <button
+                  className="add-to-list"
+                 
+                >
                   <i className="fa-solid fa-code-compare fs-3"></i>
                 </button>
               </div>

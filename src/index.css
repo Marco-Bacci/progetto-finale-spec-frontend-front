@@ -173,8 +173,14 @@ h3 {
   background-color: rgb(245, 245, 245);
   border: 1px solid rgba(208, 72, 78, 0.25);
   border-radius: 10px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
-button:hover {
+.add-to-list:hover {
+  background-color: rgb(208, 72, 78);
+  color: rgb(245, 245, 245);
+}
+
+.add-to-list.favorite {
   background-color: rgb(208, 72, 78);
   color: rgb(245, 245, 245);
 }
@@ -182,8 +188,14 @@ button:hover {
 .favorite {
   background-color: rgb(245, 245, 245);
   border: 1px solid rgba(208, 72, 78, 0.25);
-  border-radius: 0px 10px 0px 10px;
 }
+
+.home-favorite {
+  border-radius: 0px 10px 0px 10px;
+  background-color: rgb(245, 245, 245);
+  border: 1px solid rgba(208, 72, 78, 0.25);
+}
+
 
 /* preferiti */
 .product-thumb {
@@ -191,5 +203,5 @@ button:hover {
   width: 100px;
   height: 100px;
   object-fit: contain;
-  border-radius: 6px; 
+  border-radius: 6px;
 }
