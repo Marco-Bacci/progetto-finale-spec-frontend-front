@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { GlobalContext } from "../src/context/GlobalContext";
+import { useNavigate } from "react-router-dom";
 
 const FavoritesPage = () => {
   const { favorites, removeFromFavorites } = useContext(GlobalContext);
+  const navigate = useNavigate();
 
   return (
     <div className="container my-4">
@@ -30,7 +32,10 @@ const FavoritesPage = () => {
               </div>
 
               <div className="d-flex gap-1">
-                <button className="add-to-list fs-5">
+                <button
+                  className="add-to-list fs-5"
+                  onClick={() => navigate(`/product/${product.id}`)}
+                >
                   <i className="fa-solid fa-info"></i>
                 </button>
 
