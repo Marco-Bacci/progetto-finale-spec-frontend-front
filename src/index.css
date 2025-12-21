@@ -196,7 +196,9 @@ h3 {
   border: 1px solid rgba(208, 72, 78, 0.25);
 }
 
-
+.home-favorite:hover{
+  background-color: rgb(208, 72, 78);
+}
 /* preferiti */
 .product-thumb {
   background-color: white;

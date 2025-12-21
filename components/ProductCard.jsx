@@ -18,6 +18,7 @@ const ProductCard = ({ product }) => {
         <div className="position-absolute top-0 end-0">
           <button
             className={`home-favorite fs-4 ${fav ? "favorite" : ""}`}
+            style={fav ? {backgroundColor : "rgb(208, 72, 78)"} : {}}
             type="button"
             onClick={(e) => {
               e.preventDefault();

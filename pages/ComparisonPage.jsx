@@ -3,7 +3,7 @@ import React from "react";
 const ComparisonPage = () => {
   return (
     <>
-      <h1 className="text-center">compara</h1>
+      <h1 className="text-center">Compara</h1>
       <div className="container">
         <div className="row">
           <div className="col-6">
