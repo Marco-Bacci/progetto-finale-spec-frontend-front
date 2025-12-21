@@ -37,8 +37,7 @@ const DetailPage = () => {
     <>
       <h1 className="text-center">Dettaglio del prodotto</h1>
       <div className="container">
-        <div className="row py-5">
-          <div className="detail-card row g-3 align-items-start">
+          <div className="detail-card  row g-3 align-items-start py-5 my-5">
             <div className="col-12 col-md-5">
               <div className="product-image">
                 <img
@@ -86,18 +85,18 @@ const DetailPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      
       <div className="d-flex justify-content-center gap-5 my-4">
         <button
           className="add-to-list fs-3"
           onClick={goPrev}
           disabled={productId === 1}
         >
-          ⬅ Prodotto precedente
+          ⬅ Precedente
         </button>
 
         <button className="add-to-list fs-3" onClick={goNext}>
-          Prodotto successivo ➡
+          Successivo ➡
         </button>
       </div>
     </>
