@@ -24,7 +24,7 @@ const FavoritesPage = () => {
             <div className="d-flex justify-content-between align-items-center detail-card">
               <div className="d-flex align-items-center gap-3">
                 <img
-                  src={product.image}
+                  src={product.imageUrl}
                   alt={product.title}
                   className="product-thumb d-none d-sm-inline ms-1"
                 />

@@ -17,7 +17,7 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="position-absolute top-0 end-0">
           <button
-            className="favorite"
+            className="favorite fs-4"
             type="button"
             onClick={(e) => {
               e.preventDefault();
