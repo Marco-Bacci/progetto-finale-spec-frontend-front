@@ -2,8 +2,8 @@ import React from 'react'
 
 const ComparisonPage = () => {
   return (
-    <div>
-      
+    <div className='container'>
+      <h1>compara</h1>
     </div>
   )
 }

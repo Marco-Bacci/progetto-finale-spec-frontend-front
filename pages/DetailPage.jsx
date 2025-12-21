@@ -1,11 +1,11 @@
 import { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { GlobalContext } from "../src/context/GlobalContext";
 
 const DetailPage = () => {
   const { toggleFavorite, isFavorite } = useContext(GlobalContext);
-
+  const navigate = useNavigate();
 
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -20,6 +20,19 @@ const DetailPage = () => {
   if (!product) return <div className="container py-5">Caricamento…</div>;
 
   const fav = isFavorite(product.id);
+
+  const productId = Number(id);
+
+  const goPrev = () => {
+    if (productId > 1) {
+      navigate(`/products/${productId - 1}`);
+    }
+  };
+
+  const goNext = () => {
+    navigate(`/products/${productId + 1}`);
+  };
+
   return (
     <>
       <h1 className="text-center">Dettaglio del prodotto</h1>
@@ -48,10 +61,7 @@ const DetailPage = () => {
                   <i className="fa-solid fa-star fs-3"></i>
                 </button>
 
-                <button
-                  className="add-to-list"
-                 
-                >
+                <button className="add-to-list">
                   <i className="fa-solid fa-code-compare fs-3"></i>
                 </button>
               </div>
@@ -76,6 +86,19 @@ const DetailPage = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="d-flex justify-content-center gap-5 my-4">
+        <button
+          className="add-to-list fs-3"
+          onClick={goPrev}
+          disabled={productId === 1}
+        >
+          ⬅ Prodotto precedente
+        </button>
+
+        <button className="add-to-list fs-3" onClick={goNext}>
+          Prodotto successivo ➡
+        </button>
       </div>
     </>
   );

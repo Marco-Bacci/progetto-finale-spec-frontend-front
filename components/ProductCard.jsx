@@ -6,7 +6,7 @@ const ProductCard = ({ product }) => {
   const fav = isFavorite(product.id);
 
   return (
-    <Link to={`/product/${product.id}`}>
+    <Link to={`/products/${product.id}`}>
       <div
         className="card mb-3 p-3 product-card position-relative "
         style={{ maxWidth: "540px" }}
