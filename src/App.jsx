@@ -4,16 +4,34 @@ import DetailPage from "../pages/DetailPage";
 import FavoritesPage from "../pages/FavoritesPage";
 import ComparisonPage from "../pages/ComparisonPage";
 import Header from "../components/Header";
+import { useState } from "react";
 
 function App() {
+  const [comparison, setComparison] = useState([]);
+  const addToComparison = (product) => {
+    setComparison((prev) => {
+      if (prev.find((p) => p.id === product.id)) return prev;
+
+      if (prev.length === 2) {
+        return [prev[1], product];
+      }
+      return [...prev, product];
+    });
+  };
   return (
     <>
       <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/products/:id" element={<DetailPage />} />
-          <Route path="/comparison" element={<ComparisonPage />} />
+          <Route
+            path="/products/:id"
+            element={<DetailPage addToComparison={addToComparison} />}
+          />
+          <Route
+            path="/comparison"
+            element={<ComparisonPage comparison={comparison} />}
+          />
           <Route path="/favorites" element={<FavoritesPage />} />
         </Routes>
       </BrowserRouter>

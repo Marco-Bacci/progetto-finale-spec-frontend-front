@@ -34,7 +34,7 @@ const FavoritesPage = () => {
               <div className="d-flex gap-1">
                 <button
                   className="add-to-list fs-5"
-                  onClick={() => navigate(`/product/${product.id}`)}
+                  onClick={() => navigate(`/products/${product.id}`)}
                 >
                   <i className="fa-solid fa-info"></i>
                 </button>
