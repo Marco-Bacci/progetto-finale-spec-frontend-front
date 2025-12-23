@@ -18,6 +18,9 @@ function App() {
       return [...prev, product];
     });
   };
+  const removeFromComparison = (id) => {
+    setComparison((prev) => prev.filter((p) => p.id !== id));
+  };
   return (
     <>
       <BrowserRouter>
@@ -30,7 +33,12 @@ function App() {
           />
           <Route
             path="/comparison"
-            element={<ComparisonPage comparison={comparison} />}
+            element={
+              <ComparisonPage
+                comparison={comparison}
+                removeFromComparison={removeFromComparison}
+              />
+            }
           />
           <Route path="/favorites" element={<FavoritesPage />} />
         </Routes>

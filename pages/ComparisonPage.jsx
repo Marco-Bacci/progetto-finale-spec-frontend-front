@@ -1,12 +1,17 @@
-const ComparisonPage = ({ comparison }) => {
+import { GlobalContext } from "../src/context/GlobalContext";
+import { useContext } from "react";
+const ComparisonPage = ({ comparison, removeFromComparison }) => {
+  const { toggleFavorite, isFavorite } = useContext(GlobalContext);
+
   return (
     <>
       <h1 className="text-center">Compara</h1>
       <div className="container">
         <div className="row">
           {comparison.map((product) => {
+            const fav = isFavorite(product.id);
             return (
-              <div className="col-6">
+              <div className="col-6 " key={product.id}>
                 <div className="detail-card row g-3 align-items-start my-5">
                   <div className="col-12">
                     <div className="product-image ">
@@ -19,11 +24,25 @@ const ComparisonPage = ({ comparison }) => {
                     <div className="col-12 general-info">
                       <div className="card-body mb-3">
                         <h3 className="card-title text-danger mt-4 fs-1">
-                          nome
+                          {product.title}
                         </h3>
                         <p className="card-text">{product.category}</p>
                       </div>
-                      {/* manca aggiunta bottoni */}
+                      <button
+                        className={`add-to-list mb-3 ${fav ? "favorite" : ""}`}
+                        onClick={() => {
+                          toggleFavorite(product);
+                        }}
+                      >
+                        <i className="fa-solid fa-star fs-3"></i>
+                      </button>
+                      <button
+                        className="add-to-list mb-3"
+                        onClick={() => removeFromComparison(product.id)}
+                      >
+                        <i class="fa-solid fa-xmark fs-3"></i>
+                      </button>
+                     
                       <p>
                         <span>Marca:</span>
                         {product.brand}
