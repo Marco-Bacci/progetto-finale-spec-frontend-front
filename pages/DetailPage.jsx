@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { GlobalContext } from "../src/context/GlobalContext";
 
-const DetailPage = ({ addToComparison }) => {
+const DetailPage = ({ addToComparison, comparison }) => {
   const { toggleFavorite, isFavorite } = useContext(GlobalContext);
   const navigate = useNavigate();
 
@@ -20,6 +20,7 @@ const DetailPage = ({ addToComparison }) => {
   if (!product) return <div className="container py-5">Caricamento…</div>;
 
   const fav = isFavorite(product.id);
+  const inComparison = comparison?.some((p) => p.id === product.id);
 
   const productId = Number(id);
 
@@ -61,7 +62,7 @@ const DetailPage = ({ addToComparison }) => {
               </button>
 
               <button
-                className="add-to-list"
+                className={`add-to-list ${inComparison ? "favorite" : ""}`}
                 onClick={() => addToComparison(product)}
               >
                 <i className="fa-solid fa-code-compare fs-3"></i>
