@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import DetailPage from "../pages/DetailPage";
 import FavoritesPage from "../pages/FavoritesPage";
 import ComparisonPage from "../pages/ComparisonPage";
+import NotFoundPage from "../pages/NotFoundPage";
 import Header from "../components/Header";
 import { useState } from "react";
 
@@ -29,7 +30,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/products/:id"
-            element={<DetailPage addToComparison={addToComparison} comparison = {comparison} />}
+            element={
+              <DetailPage
+                addToComparison={addToComparison}
+                comparison={comparison}
+              />
+            }
           />
           <Route
             path="/comparison"
@@ -41,6 +47,7 @@ function App() {
             }
           />
           <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </>

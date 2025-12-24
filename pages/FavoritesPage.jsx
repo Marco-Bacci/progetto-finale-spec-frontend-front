@@ -10,12 +10,14 @@ const FavoritesPage = () => {
     <div className="container my-4">
       <div className="row">
         <div className="col-12">
-          <h1 className="fw-bold mb-4">Preferiti</h1>
+          <h1 className="fw-bold mb-4 text-center">Preferiti</h1>
         </div>
 
         {favorites.length === 0 && (
           <div className="col-12">
-            <p>Non hai ancora aggiunto nessun prodotto</p>
+            <h3 className="text-center m-5 text-danger">
+              Non hai ancora aggiunto nessun prodotto ai preferiti
+            </h3>
           </div>
         )}
 

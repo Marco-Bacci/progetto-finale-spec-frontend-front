@@ -8,6 +8,11 @@ const ComparisonPage = ({ comparison, removeFromComparison }) => {
       <h1 className="text-center">Compara</h1>
       <div className="container">
         <div className="row">
+          {comparison.length === 0 && (
+            <div className="col-12">
+              <h3 className="text-center m-5 text-danger">Non hai ancora aggiunto nessun prodotto al comparatore</h3>
+            </div>
+          )}
           {comparison.map((product) => {
             const fav = isFavorite(product.id);
             return (
@@ -42,7 +47,7 @@ const ComparisonPage = ({ comparison, removeFromComparison }) => {
                       >
                         <i class="fa-solid fa-xmark fs-3"></i>
                       </button>
-                     
+
                       <p>
                         <span>Marca:</span>
                         {product.brand}
