@@ -47,11 +47,7 @@ const DetailPage = ({ addToComparison, comparison }) => {
                 alt={product.title}
               />
             </div>
-          </div>
-          <div className="col-12 col-md-7 general-info">
-            <div className="card-body mb-3">
-              <h3 className="card-title text-danger">{product.title}</h3>
-              <p className="card-text">{product.category}</p>
+            <div className="text-center my-3">
               <button
                 className={`add-to-list ${fav ? "favorite" : ""}`}
                 onClick={() => {
@@ -68,18 +64,32 @@ const DetailPage = ({ addToComparison, comparison }) => {
                 <i className="fa-solid fa-code-compare fs-3"></i>
               </button>
             </div>
+          </div>
+          <div className="col-12 col-md-7 general-info">
+            <div className="card-body mb-3">
+              <h3 className="card-title text-danger">{product.title}</h3>
+              <p className="card-text">{product.category}</p>
+            </div>
             <p>
               <span>Marca:</span> {product.brand}
             </p>
             <p>
               <span>Prezzo:</span> {product.price}€
             </p>
-            <p>{product.wireless}</p>
-            <p>{product.noiseCancelling}</p>
+            <p>
+              <span>wireless:</span> {product.wireless === true ? "Sì" : "No"}
+            </p>
+            <p>
+              <span>Noise Canceling:</span>{" "}
+              {product.noiseCancelling === true ? "Sì" : "No"}
+            </p>
             <p>
               <span>batteria:</span> {product.batteryLifeHours}h
             </p>
-            <p>{product.microphone}</p>
+            <p>
+              <span>Microfono:</span>
+              {product.microphone === true ? "Sì" : "No"}
+            </p>
             <p>
               <span>peso:</span> {product.weightGrams} g
             </p>
