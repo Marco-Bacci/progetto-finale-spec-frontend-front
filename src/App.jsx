@@ -13,9 +13,9 @@ function App() {
     setComparison((prev) => {
       if (prev.find((p) => p.id === product.id)) return prev;
 
-      // if (prev.length === 2) {
-      //   return [prev[1], product];
-      // }
+      if (prev.length === 2) {
+        return [prev[1], product];
+      }
       return [...prev, product];
     });
   };
