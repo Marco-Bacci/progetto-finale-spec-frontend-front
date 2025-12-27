@@ -10,14 +10,16 @@ const ComparisonPage = ({ comparison, removeFromComparison }) => {
         <div className="row">
           {comparison.length === 0 && (
             <div className="col-12">
-              <h3 className="text-center m-5 text-danger">Non hai ancora aggiunto nessun prodotto al comparatore</h3>
+              <h3 className="text-center m-5 text-danger">
+                Non hai ancora aggiunto nessun prodotto al comparatore
+              </h3>
             </div>
           )}
           {comparison.map((product) => {
             const fav = isFavorite(product.id);
             return (
-              <div className="col-6 " key={product.id}>
-                <div className="detail-card row g-3 align-items-start my-5">
+              <div className="col-12 col-sm-6 col-lg-4 col-xl-3 " key={product.id}>
+                <div className="detail-card my-5 h-100">
                   <div className="col-12">
                     <div className="product-image ">
                       <img
@@ -45,7 +47,7 @@ const ComparisonPage = ({ comparison, removeFromComparison }) => {
                         className="add-to-list mb-3"
                         onClick={() => removeFromComparison(product.id)}
                       >
-                        <i class="fa-solid fa-xmark fs-3"></i>
+                        <i className="fa-solid fa-xmark fs-3"></i>
                       </button>
 
                       <p>
