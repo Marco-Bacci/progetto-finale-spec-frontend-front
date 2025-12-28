@@ -41,9 +41,23 @@ const FavoritesPage = () => {
                   <i className="fa-solid fa-info"></i>
                 </button>
 
-                <button
+                {/* <button
                   className="add-to-list fs-5"
                   onClick={() => removeFromFavorites(product.id)}
+                >
+                  <i className="fa-solid fa-xmark"></i>
+                </button> */}
+                <button
+                  className="add-to-list fs-5"
+                  onClick={() => {
+                    const confirmed = window.confirm(
+                      "Sei sicuro di voler rimuovere questo prodotto dai preferiti?"
+                    );
+
+                    if (confirmed) {
+                      removeFromFavorites(product.id);
+                    }
+                  }}
                 >
                   <i className="fa-solid fa-xmark"></i>
                 </button>

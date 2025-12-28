@@ -19,8 +19,8 @@ const ComparisonPage = ({ comparison, removeFromComparison }) => {
             const fav = isFavorite(product.id);
             return (
               <div
-                className={`col-sm-12 col-md-6 col-lg-4 col-xl-3 g-2 ${
-                  comparison.length === 2
+                className={` g-2 ${ 
+                  comparison.length <= 2 
                     ? "col-sm-6"
                     : comparison.length === 3
                     ? "col-sm-4"
@@ -52,9 +52,23 @@ const ComparisonPage = ({ comparison, removeFromComparison }) => {
                       >
                         <i className="fa-solid fa-star fs-3"></i>
                       </button>
-                      <button
+                      {/* <button
                         className="add-to-list mb-3"
                         onClick={() => removeFromComparison(product.id)}
+                      >
+                        <i className="fa-solid fa-xmark fs-3"></i>
+                      </button> */}
+                      <button
+                        className="add-to-list fs-5"
+                        onClick={() => {
+                          const confirmed = window.confirm(
+                            "Sei sicuro di voler rimuovere questo prodotto dal comparatore?"
+                          );
+
+                          if (confirmed) {
+                            removeFromComparison(product.id);
+                          }
+                        }}
                       >
                         <i className="fa-solid fa-xmark fs-3"></i>
                       </button>
