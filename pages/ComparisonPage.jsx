@@ -18,7 +18,16 @@ const ComparisonPage = ({ comparison, removeFromComparison }) => {
           {comparison.map((product) => {
             const fav = isFavorite(product.id);
             return (
-              <div className="col-12 col-sm-6 " key={product.id}>
+              <div
+                className={`col-sm-12 col-md-6 col-lg-4 col-xl-3 g-2 ${
+                  comparison.length === 2
+                    ? "col-sm-6"
+                    : comparison.length === 3
+                    ? "col-sm-4"
+                    : "col-sm-3"
+                }`}
+                key={product.id}
+              >
                 <div className="detail-card my-5 h-100">
                   <div className="col-12">
                     <div className="product-image ">
