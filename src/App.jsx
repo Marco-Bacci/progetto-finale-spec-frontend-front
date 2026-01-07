@@ -5,10 +5,20 @@ import FavoritesPage from "../pages/FavoritesPage";
 import ComparisonPage from "../pages/ComparisonPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import Header from "../components/Header";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [comparison, setComparison] = useState([]);
+  const [comparison, setComparison] = useState(() => {
+    const stored = localStorage.getItem("comparison");
+    return stored ? JSON.parse(stored) : [];
+  });
+
+   useEffect(() => {
+    localStorage.setItem("comparison", JSON.stringify(comparison));
+  }, [comparison]);
+
+  // -----------------------------------------------------
+
   const addToComparison = (product) => {
     setComparison((prev) => {
       if (prev.find((p) => p.id === product.id)) return prev;
