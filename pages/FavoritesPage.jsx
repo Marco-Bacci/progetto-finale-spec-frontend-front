@@ -41,12 +41,6 @@ const FavoritesPage = () => {
                   <i className="fa-solid fa-info"></i>
                 </button>
 
-                {/* <button
-                  className="add-to-list fs-5"
-                  onClick={() => removeFromFavorites(product.id)}
-                >
-                  <i className="fa-solid fa-xmark"></i>
-                </button> */}
                 <button
                   className="add-to-list fs-5"
                   onClick={() => {

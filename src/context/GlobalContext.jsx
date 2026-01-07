@@ -1,10 +1,18 @@
-import { createContext, useState, useMemo } from "react";
+import { createContext, useState, useMemo, useEffect } from "react";
 
 export const GlobalContext = createContext(null);
 
 export function GlobalProvider({ children }) {
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(() => {
+    const stored = localStorage.getItem("favorites");
+    return stored ? JSON.parse(stored) : [];
+  });
 
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
+
+  // -----------------------------------------------------
   const addToFavorites = (product) => {
     setFavorites((prev) => {
       if (prev.some((prod) => prod.id === product.id)) {
