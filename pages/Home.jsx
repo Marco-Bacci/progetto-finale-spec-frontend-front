@@ -10,6 +10,7 @@ const Home = () => {
   const [category, setCategory] = useState("all");
   const [alphabeticOrder, setAlphabeticOrder] = useState("");
 
+  
   const filteredProducts = useMemo(() => {
     const filtered = products.filter((product) => {
       const productName = product.title

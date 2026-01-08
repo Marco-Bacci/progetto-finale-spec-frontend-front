@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, memo } from "react";
 import { GlobalContext } from "../src/context/GlobalContext";
 const ProductCard = ({ product }) => {
+  console.log("render ProductCard:", product.id);
   const { toggleFavorite, isFavorite } = useContext(GlobalContext);
   const fav = isFavorite(product.id);
 
