@@ -109,11 +109,11 @@ const DetailPage = ({ addToComparison, comparison, removeFromComparison }) => {
           onClick={goPrev}
           disabled={productId === 1}
         >
-          ⬅ Precedente
+          ⇐ Precedente
         </button>
 
         <button className="add-to-list fs-3" onClick={goNext}>
-          Successivo ➡
+          Successivo ⇒
         </button>
       </div>
     </>

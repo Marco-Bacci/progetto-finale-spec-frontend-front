@@ -35,6 +35,7 @@ const Home = () => {
       .get("http://localhost:3001/products")
       .then((res) => setProducts(res.data))
       .catch((error) => console.error(error));
+      
   }, []);
 
   return (

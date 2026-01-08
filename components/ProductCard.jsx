@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext, memo } from "react";
 import { GlobalContext } from "../src/context/GlobalContext";
-const ProductCard = ({ product }) => {
+const ProductCard = memo(({ product }) => {
   console.log("render ProductCard:", product.id);
   const { toggleFavorite, isFavorite } = useContext(GlobalContext);
   const fav = isFavorite(product.id);
@@ -18,12 +18,11 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="position-absolute top-0 end-0">
           <button
-            className={`home-favorite fs-4 ${fav ? "favorite" : ""}`}
-            style={fav ? {backgroundColor : "rgb(208, 72, 78)"} : {}}
+            className="home-favorite fs-4"
+            style={fav ? { backgroundColor: "rgb(208, 72, 78)" } : {}}
             type="button"
             onClick={(e) => {
               e.preventDefault();
-              e.stopPropagation(); 
               toggleFavorite(product);
             }}
           >
@@ -37,6 +36,6 @@ const ProductCard = ({ product }) => {
       </div>
     </Link>
   );
-};
+});
 
 export default ProductCard;

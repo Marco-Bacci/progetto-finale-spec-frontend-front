@@ -19,8 +19,8 @@ const ComparisonPage = ({ comparison, removeFromComparison }) => {
             const fav = isFavorite(product.id);
             return (
               <div
-                className={` g-2 ${ 
-                  comparison.length <= 2 
+                className={` g-2 ${
+                  comparison.length <= 2
                     ? "col-sm-6"
                     : comparison.length === 3
                     ? "col-sm-4"
@@ -52,12 +52,7 @@ const ComparisonPage = ({ comparison, removeFromComparison }) => {
                       >
                         <i className="fa-solid fa-star fs-3"></i>
                       </button>
-                      {/* <button
-                        className="add-to-list mb-3"
-                        onClick={() => removeFromComparison(product.id)}
-                      >
-                        <i className="fa-solid fa-xmark fs-3"></i>
-                      </button> */}
+
                       <button
                         className="add-to-list fs-5"
                         onClick={() => {
@@ -80,12 +75,22 @@ const ComparisonPage = ({ comparison, removeFromComparison }) => {
                       <p>
                         <span>Prezzo:</span> {product.price} €
                       </p>
-                      <p>{product.wireless}</p>
-                      <p>{product.noiseCancelling}</p>
                       <p>
-                        <span>batteria:</span> {product.batteryLifeHours} h
+                        <span>wireless:</span>{" "}
+                        {product.wireless === true ? "Sì" : "No"}
                       </p>
-                      <p>{product.microphone}</p>
+                      <p>
+                        <span>Noise Canceling:</span>{" "}
+                        {product.noiseCancelling === true ? "Sì" : "No"}
+                      </p>
+                      <p>
+                        <span>batteria:</span> {product.batteryLifeHours}h
+                      </p>
+                      <p>
+                        {" "}
+                        <span>Microfono:</span>
+                        {product.microphone === true ? "Sì" : "No"}
+                      </p>
                       <p>
                         <span>peso:</span> {product.weightGrams} g
                       </p>

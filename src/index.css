@@ -185,11 +185,6 @@ h3 {
   color: rgb(245, 245, 245);
 }
 
-.favorite {
-  background-color: rgb(245, 245, 245);
-  border: 1px solid rgba(208, 72, 78, 0.25);
-}
-
 .home-favorite {
   border-radius: 0px 10px 0px 10px;
   background-color: rgb(245, 245, 245);
@@ -207,6 +202,3 @@ h3 {
   object-fit: contain;
   border-radius: 6px;
 }
-
-/* colonne comparatore  */
-
