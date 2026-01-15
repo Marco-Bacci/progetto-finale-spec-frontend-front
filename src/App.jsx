@@ -21,7 +21,7 @@ function App() {
 
   const addToComparison = (product) => {
     setComparison((prev) => {
-      if (prev.find((p) => p.id === product.id)) return prev;
+      if (prev.some((p) => p.id === product.id)) return prev;
       
       if (prev.length >= 4) {
         return prev;

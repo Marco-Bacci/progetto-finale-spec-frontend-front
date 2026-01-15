@@ -1,8 +1,9 @@
 import { createContext, useState, useMemo, useEffect } from "react";
 
-export const GlobalContext = createContext(null);
+export const GlobalContext = createContext();
 
 export function GlobalProvider({ children }) {
+  
   const [favorites, setFavorites] = useState(() => {
     const stored = localStorage.getItem("favorites");
     return stored ? JSON.parse(stored) : [];

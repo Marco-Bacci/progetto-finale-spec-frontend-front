@@ -7,7 +7,7 @@ const ComparisonPage = ({ comparison, removeFromComparison }) => {
     <>
       <h1 className="text-center">Compara</h1>
       <div className="container">
-        <div className="row">
+        <div className="row g-2 mb-4">
           {comparison.length === 0 && (
             <div className="col-12">
               <h3 className="text-center m-5 text-danger">
@@ -19,16 +19,16 @@ const ComparisonPage = ({ comparison, removeFromComparison }) => {
             const fav = isFavorite(product.id);
             return (
               <div
-                className={` g-2 ${
+                className={`col-12 col-sm-6  ${
                   comparison.length <= 2
-                    ? "col-sm-6"
+                    ? "col-lg-6"
                     : comparison.length === 3
-                    ? "col-sm-4"
-                    : "col-sm-3"
+                    ? "col-lg-4"
+                    : "col-lg-3"
                 }`}
                 key={product.id}
               >
-                <div className="detail-card my-5 h-100">
+                <div className="detail-card  h-100 ">
                   <div className="col-12">
                     <div className="product-image ">
                       <img
@@ -39,7 +39,7 @@ const ComparisonPage = ({ comparison, removeFromComparison }) => {
                     </div>
                     <div className="col-12 general-info">
                       <div className="card-body mb-3">
-                        <h3 className="card-title text-danger mt-4 fs-1">
+                        <h3 className="card-title text-danger mt-4 fs-3">
                           {product.title}
                         </h3>
                         <p className="card-text">{product.category}</p>
@@ -50,7 +50,7 @@ const ComparisonPage = ({ comparison, removeFromComparison }) => {
                           toggleFavorite(product);
                         }}
                       >
-                        <i className="fa-solid fa-star fs-3"></i>
+                        <i className="fa-solid fa-star fs-4"></i>
                       </button>
 
                       <button
@@ -65,38 +65,41 @@ const ComparisonPage = ({ comparison, removeFromComparison }) => {
                           }
                         }}
                       >
-                        <i className="fa-solid fa-xmark fs-3"></i>
+                        <i className="fa-solid fa-xmark fs-4"></i>
                       </button>
 
-                      <p>
-                        <span>Marca:</span>
-                        {product.brand}
-                      </p>
-                      <p>
-                        <span>Prezzo:</span> {product.price} €
-                      </p>
-                      <p>
-                        <span>wireless:</span>{" "}
-                        {product.wireless === true ? "Sì" : "No"}
-                      </p>
-                      <p>
-                        <span>Noise Canceling:</span>{" "}
-                        {product.noiseCancelling === true ? "Sì" : "No"}
-                      </p>
-                      <p>
-                        <span>batteria:</span> {product.batteryLifeHours}h
-                      </p>
-                      <p>
+                      <div className="fs-0-8">
                         {" "}
-                        <span>Microfono:</span>
-                        {product.microphone === true ? "Sì" : "No"}
-                      </p>
-                      <p>
-                        <span>peso:</span> {product.weightGrams} g
-                      </p>
-                      <p>
-                        <span>Descrizione:</span> {product.description}
-                      </p>
+                        <p>
+                          <span>Marca:</span>
+                          {product.brand}
+                        </p>
+                        <p>
+                          <span>Prezzo:</span> {product.price} €
+                        </p>
+                        <p>
+                          <span>wireless:</span>{" "}
+                          {product.wireless === true ? "Sì" : "No"}
+                        </p>
+                        <p>
+                          <span>Noise Canceling:</span>{" "}
+                          {product.noiseCancelling === true ? "Sì" : "No"}
+                        </p>
+                        <p>
+                          <span>batteria:</span> {product.batteryLifeHours}h
+                        </p>
+                        <p>
+                          {" "}
+                          <span>Microfono:</span>
+                          {product.microphone === true ? "Sì" : "No"}
+                        </p>
+                        <p>
+                          <span>peso:</span> {product.weightGrams} g
+                        </p>
+                        <p>
+                          <span>Descrizione:</span> {product.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>

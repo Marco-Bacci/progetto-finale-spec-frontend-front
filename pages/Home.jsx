@@ -2,15 +2,12 @@ import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import ProductCard from "../components/ProductCard";
 
-
 const Home = () => {
-   
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [alphabeticOrder, setAlphabeticOrder] = useState("");
 
-  
   const filteredProducts = useMemo(() => {
     const filtered = products.filter((product) => {
       const productName = product.title
@@ -35,7 +32,6 @@ const Home = () => {
       .get("http://localhost:3001/products")
       .then((res) => setProducts(res.data))
       .catch((error) => console.error(error));
-      
   }, []);
 
   return (

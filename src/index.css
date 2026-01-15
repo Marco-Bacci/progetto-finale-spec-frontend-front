@@ -19,6 +19,9 @@ body {
     height: 70px;
   }
 }
+.fs-0-8{
+  font-size: 0.8em;
+}
 
 /* icon container */
 .icons {
