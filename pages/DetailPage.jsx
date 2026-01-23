@@ -13,7 +13,7 @@ const DetailPage = ({ addToComparison, comparison, removeFromComparison }) => {
   useEffect(() => {
    
     axios
-      .get(`http://localhost:3001/products/${id}`)
+      .get(`https://progetto-finale-spec-frontend-back-qcko.onrender.com/products/${id}`)
       .then((res) => setProduct(res.data.product))
       .catch((err) => console.error(err));
   }, [id]);

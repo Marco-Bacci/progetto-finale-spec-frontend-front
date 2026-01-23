@@ -29,7 +29,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/products")
+      .get("https://progetto-finale-spec-frontend-back-qcko.onrender.com/products")
       .then((res) => setProducts(res.data))
       .catch((error) => console.error(error));
   }, []);
