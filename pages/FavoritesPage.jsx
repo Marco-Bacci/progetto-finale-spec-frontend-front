@@ -45,7 +45,7 @@ const FavoritesPage = () => {
                   className="add-to-list fs-5"
                   onClick={() => {
                     const confirmed = window.confirm(
-                      "Sei sicuro di voler rimuovere questo prodotto dai preferiti?"
+                      "Sei sicuro di voler rimuovere questo prodotto dai preferiti?",
                     );
 
                     if (confirmed) {
