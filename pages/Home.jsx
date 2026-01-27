@@ -29,10 +29,22 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("https://progetto-finale-spec-frontend-back-qcko.onrender.com/products")
+      .get(
+        "https://progetto-finale-spec-frontend-back-qcko.onrender.com/products",
+      )
       .then((res) => setProducts(res.data))
       .catch((error) => console.error(error));
   }, []);
+
+  if (products.length === 0)
+  return (
+    <div className="d-flex justify-content-center align-items-center" style={{ height: "20vh" }}>
+      <div className="spinner-border text-danger" role="status" style={{ width: "4rem", height: "4rem" }}>
+        <span className="visually-hidden">Caricamento...</span>
+      </div>
+    </div>
+  );
+
 
   return (
     <>
